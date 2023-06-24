@@ -34,7 +34,7 @@ export default function TextForm(props) {
             value={text}
             onChange={handleOnChange}
             style={{
-              backgroundColor: props.mode === "dark" ? "dark" : "white",
+              backgroundColor: props.mode === "dark" ? "black" : "white",
               color: props.mode === "dark" ? "white" : "black",
             }} //first braces for js and second for writing js object
             id="myBox"
