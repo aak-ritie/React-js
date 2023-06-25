@@ -1,8 +1,12 @@
 import { useState } from "react";
+import React from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
+import About from "./components/About";
 import TextForm from "./components/TextForm";
 import Alert from "./components/Alert";
+import NotFound from "./components/NotFound";
+import { Route, Routes } from "react-router-dom";
 function App() {
   const [mode, setMode] = useState("light");
 
@@ -32,13 +36,22 @@ function App() {
   return (
     <>
       <Navbar title="RKT" mode={mode} toggleMode={toggleMode} />
-      <Alert alert={alert}></Alert>
-      <div className="container my-3">
-        <TextForm
-          showAlert={showAlert}
-          heading="Enter the text to analyze"
-          mode={mode}
-        />
+      <Alert alert={alert} />
+      <div className="container my-4" mode={mode}>
+        <Routes>
+          <Route path="/about" element={<About />}></Route>
+          <Route
+            path="/"
+            element={
+              <TextForm
+                showAlert={showAlert}
+                heading="Enter Text to analyze "
+                mode={mode}
+              />
+            }
+          ></Route>
+          <Route path="*" element={<NotFound />}></Route>
+        </Routes>
       </div>
     </>
   );

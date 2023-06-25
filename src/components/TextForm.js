@@ -1,6 +1,7 @@
 import React, { useState } from "react"; //importing usestate hook from react
 
 export default function TextForm(props) {
+  const [text, setText] = useState(""); //text is a variable and enter text here is default value whenever we update the value of text we will do that through setText function
   const handleUpClick = () => {
     var newText = text.toUpperCase();
     setText(newText);
@@ -20,9 +21,9 @@ export default function TextForm(props) {
   const handleOnChange = (event) => {
     setText(event.target.value);
   };
-  const [text, setText] = useState(""); //text is a variable and enter text here is default value whenever we update the value of text we will do that through setText function
+
   return (
-    <>
+    <div>
       <div
         className="container"
         style={{ color: props.mode === "dark" ? "white" : "black" }}
@@ -67,6 +68,6 @@ export default function TextForm(props) {
             : "Enter something in textbox above to preview"}
         </p>
       </div>
-    </>
+    </div>
   );
 }
